@@ -73,7 +73,7 @@ if [ "${OS}" == "Amazon Linux" ]; then
   	export NONROOT_USER=ec2-user
 elif [ "${OS}" == "Ubuntu" ]; then
 	apt update
-	if [ $GPU_PRESENT -eq 0 ] && [ $GPU_CONTAINER_PRESENT -gt 0 ]; then
+ 	if [ $GPU_PRESENT -eq 0 ] && [ $GPU_CONTAINER_PRESENT -lt 0 ]; then
 		distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
 	    	&& curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
 		&& curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
